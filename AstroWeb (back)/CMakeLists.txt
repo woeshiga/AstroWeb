@@ -40,7 +40,7 @@ set(GET_USERS_PATH_DEFAULT "/api/users/get_users/" CACHE STRING "Default get use
 set(DELETE_USER_PATH_DEFAULT "/api/users/delete_user/" CACHE STRING "Default delete user path")
 
 # Получаем путь к config.ini из аргумента командной строки
-set(CONFIG_FILE_PATH "" CACHE FILEPATH "Path to config.ini file")
+set(CONFIG_FILE_PATH_DEFAULT "${CMAKE_BINARY_DIR}" CACHE FILEPATH "Path to config.ini file")
 
 # Create config.ini.in
 file(WRITE ${CONFIG_FILE_PATH}/config.ini.in "[DataBase]\nDB=${DB_DEFAULT}\n\n[Server]\nHOST=${HOST_DEFAULT}\nPORT=${PORT_DEFAULT}\nTOKEN_LIFETIME=${TOKEN_LIFETIME_DEFAULT}\n\n[API]\nREGISTER_PATH=${REGISTER_PATH_DEFAULT}\nLOGIN_PATH=${LOGIN_PATH_DEFAULT}\nLOGOUT_PATH=${LOGOUT_PATH_DEFAULT}\nGET_USER_PATH=${GET_USER_PATH_DEFAULT}\nGET_USERS_PATH=${GET_USERS_PATH_DEFAULT}\nDELETE_USER_PATH=${DELETE_USER_PATH_DEFAULT}\n\n[Directories]\nMEDIA_ROOT=./src/\nIMAGES_DIR=images/")
