@@ -5,7 +5,7 @@ $(function() {
         $.ajax({
             crossDomain: true,
             responseType: "application/json",
-            url: "http://localhost:8000/api/auth/login/?login="+login+"&password="+password,
+            url: `${cfg.HOST}${cfg.PORT}${cfg.LOGIN_PATH}?login=${login}&password=${password}`,
             type: "POST"
         })
         .done(function(data) {

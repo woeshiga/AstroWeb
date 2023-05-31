@@ -5,7 +5,7 @@ $(function(){
     else
     {
         $.ajax({
-            url: "http://localhost:8000/api/get_user/",
+            url: `${cfg.HOST}${cfg.PORT}${cfg.GET_USER_PATH}`,
             headers: {
                 "Access-Token": localStorage.getItem("token"),
             },

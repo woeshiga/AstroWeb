@@ -3,3 +3,8 @@ body, html
     margin: 0;
     box-sizing: border-box;
 }
+
+.loading_img
+{
+  margin: 0 auto;
+}

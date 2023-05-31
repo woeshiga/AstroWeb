@@ -42,7 +42,11 @@ set(DELETE_USER_PATH_DEFAULT "/api/users/delete_user/" CACHE STRING "Default del
 # Получаем путь к config.ini из аргумента командной строки
 set(CONFIG_FILE_PATH ${CMAKE_BINARY_DIR} CACHE FILEPATH "Path to config.ini file")
 
+# Получаем путь к фронтенду из агрумента командной строки
+set(FRONT_PATH ${CMAKE_BINARY_DIR} CACHE STRING "Path to frontend dir")
+
 # Create config.ini.in
+file (WRITE ${FRONT_PATH}/scripts/config.js "const cfg = {DB:\"${DB_DEFAULT}\",HOST:\"${HOST_DEFAULT}\",PORT:\"${PORT_DEFAULT}\",REGISTER_PATH:\"${REGISTER_PATH_DEFAULT}\",LOGIN_PATH:\"${LOGIN_PATH_DEFAULT}\",LOGOUT_PATH:\"${LOGOUT_PATH_DEFAULT}\",GET_USER_PATH:\"${GET_USER_PATH_DEFAULT}\",GET_USERS_PATH:\"${GET_USERS_PATH_DEFAULT}\",DELETE_USER_PATH:\"${DELETE_USER_PATH_DEFAULT}\",MEDIA_ROOT:\"./src/\",IMAGES_DIR:\"images/\"}; if (cfg.PORT!=\"\"){cfg.PORT=\":\"+cfg.PORT;}")
 file(WRITE ${CONFIG_FILE_PATH}/config.ini.in "[DataBase]\nDB=${DB_DEFAULT}\n\n[Server]\nHOST=${HOST_DEFAULT}\nPORT=${PORT_DEFAULT}\nTOKEN_LIFETIME=${TOKEN_LIFETIME_DEFAULT}\n\n[API]\nREGISTER_PATH=${REGISTER_PATH_DEFAULT}\nLOGIN_PATH=${LOGIN_PATH_DEFAULT}\nLOGOUT_PATH=${LOGOUT_PATH_DEFAULT}\nGET_USER_PATH=${GET_USER_PATH_DEFAULT}\nGET_USERS_PATH=${GET_USERS_PATH_DEFAULT}\nDELETE_USER_PATH=${DELETE_USER_PATH_DEFAULT}\n\n[Directories]\nMEDIA_ROOT=./src/\nIMAGES_DIR=images/")
 configure_file(${CONFIG_FILE_PATH}/config.ini.in ${CMAKE_CURRENT_BINARY_DIR}/config.ini.in COPYONLY)
 

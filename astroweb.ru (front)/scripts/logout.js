@@ -3,7 +3,7 @@ $(function() {
         $.ajax({
             crossDomain: true,
             responseType: "application/json",
-            url: "http://localhost:8000/api/auth/logout/",
+            url: `${cfg.HOST}${cfg.PORT}${cfg.LOGOUT_PATH}`,
             headers: {
                 "Access-Token": localStorage.getItem("token")
             }
