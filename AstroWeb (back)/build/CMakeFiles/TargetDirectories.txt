@@ -1,3 +1,0 @@
-/home/diejester/Документы/projects/AstroWeb/AstroWeb (back)/build/CMakeFiles/AstroWeb.dir
-/home/diejester/Документы/projects/AstroWeb/AstroWeb (back)/build/CMakeFiles/edit_cache.dir
-/home/diejester/Документы/projects/AstroWeb/AstroWeb (back)/build/CMakeFiles/rebuild_cache.dir
