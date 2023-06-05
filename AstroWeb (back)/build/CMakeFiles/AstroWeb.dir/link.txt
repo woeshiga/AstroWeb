@@ -1,0 +1,1 @@
+/usr/bin/c++ -static-libstdc++ -static-libgcc -rdynamic CMakeFiles/AstroWeb.dir/AstroWeb.cpp.o -o AstroWeb  -lsqlite3 -lssl -lcrypto 

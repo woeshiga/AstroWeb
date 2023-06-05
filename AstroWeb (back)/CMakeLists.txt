@@ -68,21 +68,13 @@ endif()
 if(OPENSSL_FOUND)
     message(STATUS "OpenSSL found: ${OPENSSL_VERSION}")
     # server.crt and server.key generation
-    add_custom_command(
-        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/server.crt
-               ${CMAKE_CURRENT_BINARY_DIR}/server.key
-        COMMAND openssl genpkey -algorithm RSA -out ${CMAKE_CURRENT_BINARY_DIR}/server.key
-        COMMAND openssl req -new -key ${CMAKE_CURRENT_BINARY_DIR}/server.key -out ${CMAKE_CURRENT_BINARY_DIR}/server.csr
-        COMMAND openssl x509 -req -in ${CMAKE_CURRENT_BINARY_DIR}/server.csr -signkey ${CMAKE_CURRENT_BINARY_DIR}/server.key -out ${CMAKE_CURRENT_BINARY_DIR}/server.crt
-        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-        COMMENT "Generating SSL certificate and key"
-    )
+    #add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/server.crt ${CMAKE_CURRENT_BINARY_DIR}/server.key COMMAND openssl genpkey -algorithm RSA -out ${CMAKE_CURRENT_BINARY_DIR}/server.key COMMAND openssl req -new -key ${CMAKE_CURRENT_BINARY_DIR}/server.key -out ${CMAKE_CURRENT_BINARY_DIR}/server.csr COMMAND openssl x509 -req -in ${CMAKE_CURRENT_BINARY_DIR}/server.csr -signkey ${CMAKE_CURRENT_BINARY_DIR}/server.key -out ${CMAKE_CURRENT_BINARY_DIR}/server.crt WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} COMMENT "Generating SSL certificate and key")
 
     # Adding generation files to target
-    add_custom_target(ssl_certificate DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/server.crt ${CMAKE_CURRENT_BINARY_DIR}/server.key)
+    #add_custom_target(ssl_certificate DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/server.crt ${CMAKE_CURRENT_BINARY_DIR}/server.key)
 
 
-    add_dependencies(AstroWeb ssl_certificate)
+    #add_dependencies(AstroWeb ssl_certificate)
 else()
     message(FATAL_ERROR "OpenSSL not found")
 endif()

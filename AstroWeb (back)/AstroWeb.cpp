@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -27,7 +27,7 @@ std::string GetParameterValue(const std::string& key, int argc, char* argv[]) {
             return argument.substr(key.length() + 1);
         }
     }
-    return "";
+    return "/usr/bin/local/config.ini";
 }
 
 std::string sha512(const std::string& password) {
@@ -564,6 +564,7 @@ void handleRequest(SSL* ssl, int clientSocket, char* err_db, std::map<std::strin
         resp << "HTTP/1.1 200 OK\r\n"
             << "Version: HTTP/1.1\r\n"
             << "Access-Control-Allow-Origin: *\r\n"
+            << "Access-Control-Allow-Headers: *\r\n"
             << "Content-Type: application/json\r\n"
             << "Content-Length: " << response_body.str().length()
             << "\r\n\r\n"
